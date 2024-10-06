@@ -1,9 +1,13 @@
 name: Basic-Workflow
-run-name: ${{ github.actor }}
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
   pull_request:
     branches:
       - main
