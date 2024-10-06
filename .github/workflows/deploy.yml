@@ -1,12 +1,23 @@
 name: Basic-Workflow
 run-name: ${{ github.actor }}
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is the Test-job."
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run js:lint
   build:
     runs-on: ubuntu-latest
     steps:
