@@ -1,0 +1,17 @@
+name: Basic-Workflow
+run-name: ${{ github.actor }}
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is the Test-job."
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is the Build-job."
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is the Deploy-job."
